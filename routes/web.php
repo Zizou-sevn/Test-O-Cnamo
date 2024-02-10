@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class, 'accueil'])->name('main.accueil');
+
+Route::get('/menu', [MainController::class, 'menu'])->name('main.menu');
+
+Route::get('/reservation', [MainController::class, 'reservation'])->name('main.reservation');
